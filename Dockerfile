@@ -1,12 +1,15 @@
-FROM ubuntu:latest
+FROM kroniak/ssh-client
 
 WORKDIR /root/.ssh
 
-RUN apt-get update && apt-get install -y openssh-client
+#RUN apt-get update && apt-get install openssh-client -y
 RUN mkdir -p ~/.ssh && chmod 700 ~/.ssh
 RUN echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
-# COPY ./id_ed25519 .
+#COPY ./id_ed25519 .
 COPY ./config .
 RUN chmod 600 ~/.ssh/*
 
-ENTRYPOINT service ssh start && bash
+EXPOSE 22
+
+#CMD [ "/usr/sbin/sshd", "-D" ]
+ENTRYPOINT bash
