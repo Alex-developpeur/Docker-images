@@ -5,7 +5,6 @@ WORKDIR /root/.ssh
 #RUN apt-get update && apt-get install openssh-client -y
 #RUN mkdir -p ~/.ssh && chmod 700 ~/.ssh
 ARG SSH_PRIVATE_KEY
-ARG CONFIG_SSH
 
 RUN echo ${SSH_PRIVATE_KEY} > ~/.ssh/id_ed25519
 ARG CONFIG_SSH
