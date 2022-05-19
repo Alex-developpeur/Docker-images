@@ -8,5 +8,5 @@ build-job:
   script:
     - echo "Build"
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker build --build-arg SSH_PRIVATE_KEY=${SSH_PRIVATE_KEY} --build-arg CONFIG_SSH=${CONFIG_SSH} -t $CI_REGISTRY/devops/ubuntu-ssh .
+    - docker build --build-arg SSH_PRIVATE_KEY="$SSH_PRIVATE_KEY" -t $CI_REGISTRY/devops/ubuntu-ssh --build-arg CONFIG_SSH="$CONFIG_SSH" .
     - docker push $CI_REGISTRY/devops/ubuntu-ssh
