@@ -8,9 +8,9 @@ ARG SSH_PRIVATE_KEY
 
 RUN echo ${SSH_PRIVATE_KEY} > ~/.ssh/id_ed25519
 ARG CONFIG_SSH
-RUN mv $CONFIG_SSH ~/.ssh/config
+#RUN mv $CONFIG_SSH ~/.ssh/config
 #COPY ./id_ed25519 .
-#COPY ./config .
+COPY ./config .
 RUN chmod 600 ~/.ssh/*
 
 ENTRYPOINT bash
