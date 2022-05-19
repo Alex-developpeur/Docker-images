@@ -8,6 +8,7 @@ ARG SSH_PRIVATE_KEY
 ARG CONFIG_SSH
 
 RUN echo ${SSH_PRIVATE_KEY} > ~/.ssh/id_ed25519
+RUN echo "Print SSH_PRIVATE_KEY ${SSH_PRIVATE_KEY}"
 RUN echo "Print CONFIG_SSH ${CONFIG_SSH}"
 RUN mv ${CONFIG_SSH} ~/.ssh/config
 #COPY ./id_ed25519 .
