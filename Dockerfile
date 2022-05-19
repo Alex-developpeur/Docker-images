@@ -8,7 +8,7 @@ ARG SSH_PRIVATE_KEY
 RUN echo "Print SSH_PRIVATE_KEY ${SSH_PRIVATE_KEY}"
 
 RUN echo ${SSH_PRIVATE_KEY} > ~/.ssh/id_ed25519
-COPY ./id_ed25519 .
+#COPY ./id_ed25519 .
 COPY ./config .
 RUN chmod 600 ~/.ssh/*
 
