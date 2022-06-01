@@ -1,0 +1,6 @@
+Host Docker_gr3
+  StrictHostKeyChecking no
+  UserKnownHostsFile /dev/null
+  HostName 15.236.59.238
+  User admin
+  IdentityFile ~/.ssh/id_ed25519

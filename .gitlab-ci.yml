@@ -3,10 +3,18 @@ image: docker:latest
 stages:
   - build
 
+.version:
+  parallel:
+    matrix:
+      - NAME: packer-ansible
+      - NAME: ssh
+
 build-job:
   stage: build
+  extends: 
+    - .version
   script:
     - echo "Build"
     - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
-    - docker build --build-arg SSH_PRIVATE_KEY="$SSH_PRIVATE_KEY" --build-arg CONFIG_SSH="$CONFIG_SSH" -t $CI_REGISTRY/devops/ubuntu-ssh .
-    - docker push $CI_REGISTRY/devops/ubuntu-ssh
+    - docker build --build-arg SSH_PRIVATE_KEY="$SSH_PRIVATE_KEY" --build-arg CONFIG_SSH="$CONFIG_SSH" -t $CI_REGISTRY/devops/${NAME} -f ${NAME}.dockerfile .
+    - docker push $CI_REGISTRY/devops/${NAME}
