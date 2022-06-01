@@ -1,6 +1,7 @@
 FROM debian:10
 
 RUN apt update
+RUN apt upgrade -y
 RUN apt install -y curl
 RUN apt install -y gnupg2
 RUN apt install -y lsb-release
