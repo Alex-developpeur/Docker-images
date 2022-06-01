@@ -1,4 +1,4 @@
-FROM debian:10-slim
+FROM debian:10
 
 RUN apt-get install sudo -y
 RUN sudo apt install curl -y
