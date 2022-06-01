@@ -14,4 +14,6 @@ RUN apt-get install -y \
     python \
     python-pip
 
+RUN python -m pip install ansible
+
 ENTRYPOINT bash
