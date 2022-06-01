@@ -1,6 +1,6 @@
 FROM hashicorp/packer:latest
 
-RUN sudo apk update
-RUN sudo apk add ansible
+RUN apk update
+RUN apk add ansible
 
 ENTRYPOINT bash
