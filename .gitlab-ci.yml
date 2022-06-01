@@ -8,6 +8,7 @@ stages:
     matrix:
       - NAME: packer-ansible
       - NAME: ssh
+      - NAME: debian-packer-ansible
 
 build-job:
   stage: build
