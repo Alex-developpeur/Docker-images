@@ -1,6 +1,5 @@
-FROM debian:10
+FROM ubuntu
 
-RUN apt-get install sudo -y
 RUN sudo apt install curl -y
 
 RUN curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
