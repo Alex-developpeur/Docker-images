@@ -7,5 +7,6 @@ RUN apk update
 RUN apk add sudo
 RUN apk add ansible
 RUN apk add curl
+RUN apk add jq
 
 ENTRYPOINT ["/bin/sh"]
